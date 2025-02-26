@@ -1,0 +1,219 @@
+/* Réinitialisation */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style global */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* En-tête */
+header {
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+.header-img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* Contenu principal */
+main {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Sections avec animations */
+.section {
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+/* Délais pour chaque section */
+#introduction {
+  animation-delay: 0.2s;
+}
+#types {
+  animation-delay: 0.4s;
+}
+#fonctionnement {
+  animation-delay: 0.6s;
+}
+#integration {
+  animation-delay: 0.8s;
+}
+#ia {
+  animation-delay: 1s;
+}
+#cle-api {
+  animation-delay: 1.2s;
+}
+#websocket-chatbot {
+  animation-delay: 1.4s;
+}
+#conclusion {
+  animation-delay: 1.6s;
+}
+
+/* Titres */
+h1,
+h2,
+h3 {
+  margin-bottom: 10px;
+}
+.presentateur,
+.groupe {
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+h2 {
+  color: #2980b9;
+  border-bottom: 2px solid #2980b9;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Articles */
+article {
+  margin-bottom: 20px;
+}
+
+/* Listes */
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Images intégrées aux sections */
+.section-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+/* Exemples de code */
+pre.code-block {
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: "Courier New", monospace;
+  margin: 10px 0;
+}
+
+/* Pied de page */
+footer {
+  background-color: #3498db;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bouton "Retour en haut" */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+#scrollTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Définition de l'animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Appliquer l'animation aux images */
+.section-img {
+  opacity: 0; /* Cache l'image au départ */
+  transform: translateY(50px); /* Position de départ */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Activer l'animation lorsque l'image apparaît dans la fenêtre visible */
+.section-img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Media Queries pour un affichage responsive */
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
+    margin: 10px auto;
+  }
+  header,
+  footer {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.4em;
+  }
+}
+@media (max-width: 480px) {
+  header,
+  footer {
+    padding: 10px;
+  }
+  h1 {
+    font-size: 1.6em;
+  }
+  h2 {
+    font-size: 1.2em;
+  }
+  pre.code-block {
+    font-size: 0.9em;
+  }
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veille Technologique sur les API</title>
+    <!-- Lien vers le fichier CSS externe -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Veille Technologique sur les API</h1>
+      <p class="presentateur">
+        Présenté par <strong>GEOFFOYD VITANGNI</strong>
+      </p>
+      <p class="groupe">Exposé du <strong>GROUPE D</strong></p>
+
+      <img
+        src="bannière sur API.jpg"
+        alt="Bannière sur les API"
+        class="header-img"
+      />
+    </header>
+    <main>
+      <!-- 1. Introduction -->
+      <section class="section" id="introduction">
+        <h2>Introduction</h2>
+        <article>
+          <h3>Définition d'une API</h3>
+          <p>
+            Une API (Application Programming Interface) est un ensemble de
+            règles et de protocoles permettant à deux systèmes ou applications
+            de communiquer entre eux. Elle définit les méthodes et formats
+            d'échange des données, sans que le client ait besoin de connaître
+            les détails de l’implémentation du serveur.
+          </p>
+          <img
+            src="df API.jpg"
+            alt="Définition d'une API"
+            class="section-img"
+          />
+        </article>
+        <article>
+          <h3>Pourquoi utiliser des API ?</h3>
+          <ul>
+            <li>
+              <strong>Interopérabilité</strong> : Connecter diverses
+              applications (web, mobile, IoT, etc.).
+            </li>
+            <li>
+              <strong>Réduction du temps de développement</strong> :
+              Réutilisation de services existants.
+            </li>
+            <li>
+              <strong>Évolutivité</strong> : Ajout ou modification de
+              fonctionnalités sans reconstruire toute l’application.
+            </li>
+            <li>
+              <strong>Sécurité</strong> : Accès contrôlé via clés API, tokens,
+              OAuth, etc.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- 2. Types d'API -->
+      <section class="section" id="types">
+        <h2>Types d'API</h2>
+        <article>
+          <h3>API REST</h3>
+          <p>
+            Repose sur les principes du REST (Representational State Transfer)
+            en utilisant les méthodes HTTP telles que GET, POST, PUT, PATCH et
+            DELETE. Le format d'échange est principalement JSON (ou XML).
+          </p>
+          <img src="API REST.png" class="section-img" alt="API REST" />
+        </article>
+        <article>
+          <h3>API SOAP</h3>
+          <p>
+            Utilise le protocole XML pour l’échange de messages et se base sur
+            un contrat défini (WSDL), très utilisé dans les environnements
+            d'entreprise.
+          </p>
+          <img src="API SOAP.png" class="section-img" alt="API SOAP" />
+        </article>
+        <article>
+          <h3>API GraphQL</h3>
+          <p>
+            Permet au client de définir précisément les données dont il a
+            besoin, évitant ainsi le sur ou le sous-chargement de données.
+          </p>
+          <img src="API GRAPHQL.png" class="section-img" alt="API GraphQL" />
+        </article>
+        <article>
+          <h3>Autres types d'API</h3>
+          <p>
+            On trouve également des solutions telles que gRPC, qui utilise
+            HTTP/2 et Protobuf pour des communications performantes, et les API
+            via WebSocket pour une communication bidirectionnelle en temps réel.
+          </p>
+          <img src="API sokect.png" class="section-img" alt="API WebSocket" />
+        </article>
+      </section>
+
+      <!-- 3. Fonctionnement et Composants d'une API -->
+      <section class="section" id="fonctionnement">
+        <h2>Fonctionnement et Composants d'une API</h2>
+        <article>
+          <h3>Composants Clés</h3>
+          <p>
+            Les API reposent sur des éléments essentiels tels que les
+            <strong>endpoints</strong> (URL d'accès aux ressources), les
+            <strong>méthodes HTTP</strong> (GET, POST, PUT, PATCH, DELETE), les
+            <strong>paramètres</strong> (query, path, body) et des mécanismes
+            d’<strong>authentification</strong> (API Key, OAuth, JWT).
+          </p>
+        </article>
+        <article>
+          <h3>WebSocket</h3>
+          <p>
+            Le protocole WebSocket permet d'établir une connexion persistante et
+            bidirectionnelle entre le client et le serveur. Il est
+            particulièrement adapté aux applications nécessitant une
+            communication en temps réel, comme les chatbots.
+          </p>
+          <img
+            src="API sokect.png"
+            alt="Connexion WebSocket"
+            class="section-img"
+          />
+        </article>
+      </section>
+
+      <!-- 4. Intégration d'une API dans une Application Web -->
+      <section class="section" id="integration">
+        <h2>Intégration d'une API dans une Application Web</h2>
+        <article>
+          <h3>Étapes d'Intégration</h3>
+          <ul>
+            <li>Choisir une API adaptée à vos besoins.</li>
+            <li>Lire attentivement la documentation.</li>
+            <li>Tester l'API avec des outils comme Postman.</li>
+            <li>
+              Intégrer le code dans votre application (ex : avec
+              <code>fetch</code> ou <code>axios</code>).
+            </li>
+          </ul>
+        </article>
+        <article>
+          <h3>Exemples de Code Commentés</h3>
+          <p><strong>Exemple 1 : Requête GET avec fetch</strong></p>
+          <pre class="code-block">
+// Exemple de requête GET avec fetch
+const apiKey = 'YOUR_API_KEY';
+const city = 'Paris';
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => console.log("Données météo :", data))
+  .catch(error => console.error("Erreur :", error));
+          </pre>
+          <p><strong>Exemple 2 : Requête POST avec axios</strong></p>
+          <pre class="code-block">
+import axios from 'axios';
+
+const url = 'https://api.example.com/users';
+const nouvelUtilisateur = {
+  nom: "Dupont",
+  prenom: "Jean",
+  email: "jean.dupont@example.com"
+};
+
+axios.post(url, nouvelUtilisateur, {
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+})
+.then(response => console.log("Utilisateur créé :", response.data))
+.catch(error => console.error("Erreur :", error));
+          </pre>
+          <p>
+            <strong
+              >Exemple 3 : Communication en Temps Réel avec WebSocket</strong
+            >
+          </p>
+          <pre class="code-block">
+// Création d'une connexion WebSocket
+const socket = new WebSocket('wss://example.com/socket');
+
+socket.addEventListener('open', () => {
+  console.log('Connexion établie');
+  socket.send(JSON.stringify({ type: 'subscribe', channel: 'chat' }));
+});
+
+socket.addEventListener('message', event => {
+  console.log('Message reçu :', event.data);
+});
+          </pre>
+        </article>
+      </section>
+
+      <!-- 5. API d'Intelligence Artificielle -->
+      <section class="section" id="ia">
+        <h2>API d'Intelligence Artificielle</h2>
+        <article>
+          <h3>Présentation</h3>
+          <p>
+            Les API d'IA permettent d'accéder à des modèles capables de générer
+            du texte, des images ou d'effectuer des tâches d'analyse et de
+            traitement de données. Elles ouvrent la voie à des applications
+            innovantes.
+          </p>
+          <img
+            src="API IA.jpg"
+            alt="API d'Intelligence Artificielle"
+            class="section-img"
+          />
+        </article>
+        <article>
+          <h3>Exemples d'API IA</h3>
+          <ul>
+            <li>OpenAI (ChatGPT, DALL·E, etc.)</li>
+            <li>Google Cloud AI</li>
+            <li>Hugging Face</li>
+            <li>Microsoft Azure AI</li>
+          </ul>
+          <p><strong>Exemple d'intégration avec axios</strong></p>
+          <pre class="code-block">
+import axios from 'axios';
+
+const apiKey = 'YOUR_OPENAI_API_KEY';
+const url = 'https://api.openai.com/v1/engines/davinci-codex/completions';
+
+const data = {
+  prompt: "Explique-moi comment fonctionnent les API.",
+  max_tokens: 150
+};
+
+axios.post(url, data, {
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`
+  }
+})
+.then(response => console.log("Réponse IA :", response.data))
+.catch(error => console.error("Erreur IA :", error));
+          </pre>
+        </article>
+      </section>
+
+      <!-- 6. Obtenir et Utiliser une Clé API -->
+      <section class="section" id="cle-api">
+        <h2>Obtenir et Utiliser une Clé API</h2>
+        <article>
+          <h3>Obtenir la Clé API</h3>
+          <p>
+            Pour obtenir une clé API, inscrivez-vous sur la plateforme
+            correspondante, créez un projet et générez votre clé.
+          </p>
+        </article>
+        <article>
+          <h3>Utilisation dans le Code</h3>
+          <p>
+            Intégrez la clé dans les headers (par exemple avec
+            <code>Authorization: Bearer YOUR_API_KEY</code>) ou en tant que
+            paramètre dans l'URL. Pensez à stocker votre clé en sécurité, par
+            exemple dans des variables d'environnement.
+          </p>
+        </article>
+      </section>
+
+      <!-- 7. Utilisation de WebSocket pour un Chatbot -->
+      <section class="section" id="websocket-chatbot">
+        <h2>Utilisation de WebSocket pour un Chatbot</h2>
+        <article>
+          <p>
+            WebSocket offre une communication en temps réel, idéale pour créer
+            des chatbots et gérer des notifications instantanées.
+          </p>
+          <img
+            src="Chatbot.jpg"
+            alt="Chatbot avec WebSocket"
+            class="section-img"
+          />
+        </article>
+      </section>
+
+      <!-- 8. Conclusion -->
+      <section class="section" id="conclusion">
+        <h2>Conclusion</h2>
+        <article>
+          <p>
+            Les API sont essentielles pour connecter et enrichir vos
+            applications. Expérimentez avec différents types d'API, protégez vos
+            clés et consultez la documentation officielle pour une intégration
+            réussie.
+          </p>
+        </article>
+      </section>
+    </main>
+    <footer>
+      <p>
+        Présenté par <strong>GEOFFOYD VITANGNI</strong> | Exposé du
+        <strong>GROUPE D</strong>
+      </p>
+
+      <p>&copy; 2025 Veille Technologique sur les API. Tous droits réservés.</p>
+    </footer>
+    <!-- Script optionnel pour le bouton "Retour en haut" -->
+    <script src="main.js"></script>
+  </body>
+</html>
